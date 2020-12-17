@@ -23,9 +23,9 @@ export default {
   customerDeleteById: id => apiUrl + 'customers/' + id,
   customerRetrieveCount: apiUrl + 'customers/count',
   customerSearch: apiUrl + 'customers/search',
-  customerLogin:apiUrl+'customerlogin',
-  customerRegister:apiUrl + 'customer_register/',
-  customerForgotPassword:apiUrl + 'customer_forgot_password/',
+  customerLogin: apiUrl + 'customerlogin',
+  customerRegister: apiUrl + 'customer_register/',
+  customerForgotPassword: apiUrl + 'customer_forgot_password/',
 
   // Languages
   languageRetrieve: apiUrl + 'languages',
@@ -41,7 +41,13 @@ export default {
   newsLetterSubscriptionRetrieve: apiUrl + 'news_letter_subscriptions',
   newsLetterSubscriptionDeactivate: email =>
     apiUrl + 'news_letter_subscriptions/' + email + '/deactivate',
-
+  newsLetterCheckSubscrption: (email, storeId) =>
+    apiUrl +
+    '/news_letter_check_subscription' +
+    '?Email=' +
+    email +
+    '&StoreId=' +
+    storeId,
   // OrderItems
 
   orderItemsRetrieve: orderId => apiUrl + 'orders/' + orderId + '/items',

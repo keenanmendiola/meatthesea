@@ -25,6 +25,10 @@ class Settings extends Component {
     };
   }
 
+  componentDidMount() {
+    console.log('this.props.state', this.props.state.location.id);
+  }
+
   selectHandler = index => {
     let newData = this.state.data;
     newData[index].isSelected = !newData[index].isSelected;
@@ -32,9 +36,21 @@ class Settings extends Component {
   };
 
   setNewsletterSubscription = () => {
+    const {user, location} = this.props.state;
     this.setState({isLoading: true});
+    // Api.getRequest(
+    //   Routes.newsLetterSubscriptionRetrieve,
+    //   response => {
+    //     console.log('News letter response', response);
+    //     this.setState({isLoading: false});
+    //   },
+    //   error => {
+    //     console.log('News letter response error', error);
+    //     this.setState({isLoading: false});
+    //   },
+    // );
     Api.getRequest(
-      Routes.newsLetterSubscriptionRetrieve,
+      Routes.newsLetterCheckSubscrption(user.email, location.id),
       response => {
         console.log('News letter response', response);
         this.setState({isLoading: false});
